@@ -73,3 +73,87 @@ section { padding:100px 0; }
     .card { width:120px; height:160px; font-size:12px; }
     .about-grid { grid-template-columns:1fr; }
 }
+
+
+/* ───── HERO CARDS — CREATIVE HOVER (Ultra Smooth + Lightweight) ───── */
+.hero-cards {
+    position: relative;
+    height: 520px;
+    pointer-events: none; /* Only cards par hover enable thase */
+}
+
+.card {
+    position: absolute;
+    width: 200px;
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.16);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+    pointer-events: auto; /* Hover sirf card par thase */
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+}
+
+/* Individual Card Colors */
+.c1 .card-inner { background: linear-gradient(135deg, #ff6b6b, #ee5a24); }
+.c2 .card-inner { background: linear-gradient(135deg, #a29bfe, #6c5ce7); }
+.c3 .card-inner { background: linear-gradient(135deg, #fd79a8, #e84393); }
+.c4 .card-inner { background: linear-gradient(135deg, #55efc4, #00b894); }
+.c5 .card-inner { background: linear-gradient(135deg, #fdcb6e, #e17055); }
+
+/* Default Positions (uneven stack) */
+.c1 { top: 0; left: 0; transform: rotate(-8deg); }
+.c2 { top: 40px; right: 20px; transform: rotate(7deg); }
+.c3 { bottom: 80px; left: 40px; transform: rotate(-5deg); }
+.c4 { bottom: 20px; right: 60px; transform: rotate(10deg); }
+.c5 { top: 180px; left: 80px; transform: rotate(-12deg); }
+
+/* HOVER MAGIC — Super Creative & Smooth */
+.card[data-hover]:hover {
+    transform: translateY(-30px) rotate(0deg) scale(1.08) !important;
+    z-index: 20;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+}
+
+.card[data-hover]:hover .card-inner {
+    transform: scale(1.1);
+    box-shadow: inset 0 0 60px rgba(255,255,255,0.2);
+}
+
+/* Floating Animation (very lightweight) */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+    50% { transform: translateY(-15px) rotate(var(--r, 0deg)); }
+}
+
+.c1 { --r: -8deg; animation: float 6s ease-in-out infinite; }
+.c2 { --r: 7deg; animation: float 7s ease-in-out infinite; }
+.c3 { --r: -5deg; animation: float 8s ease-in-out infinite; }
+.c4 { --r: 10deg; animation: float 6.5s ease-in-out infinite; }
+.c5 { --r: -12deg; animation: float 7.5s ease-in-out infinite; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-cards { height: 380px; }
+    .card { width: 140px; height: 200px; font-size: 14px; }
+    .card[data-hover]:hover { transform: translateY(-15px) scale(1.05) !important; }
+}
