@@ -1,305 +1,275 @@
-// ══════════════════════════════════════════════
-//  ✦ GRAPHIC DESIGNER PORTFOLIO — SCRIPT
-// ══════════════════════════════════════════════
+// ═══════════════════════════════════════
+//  GRAPHIC DESIGNER PORTFOLIO — JS
+// ═══════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ── PRELOADER ──
-    const preloader = document.getElementById('preloader');
-    const preloaderProgress = document.getElementById('preloaderProgress');
-    const preloaderCount = document.getElementById('preloaderCount');
+    // ── LOADER ──
+    const loader = document.getElementById('loader');
+    const loaderFill = document.getElementById('loaderFill');
+    const loaderNum = document.getElementById('loaderNum');
     let count = 0;
 
-    const preloaderInterval = setInterval(() => {
-        count += Math.floor(Math.random() * 8) + 2;
+    const tick = setInterval(() => {
+        count += Math.floor(Math.random() * 10) + 3;
         if (count >= 100) {
             count = 100;
-            clearInterval(preloaderInterval);
+            clearInterval(tick);
             setTimeout(() => {
-                preloader.classList.add('done');
-                document.body.style.overflow = 'auto';
-                triggerHeroAnimation();
+                loader.classList.add('done');
+                document.body.style.overflow = '';
+                // Trigger hero animations
+                document.querySelectorAll('.hero [data-anim]').forEach(el => el.classList.add('vis'));
             }, 400);
         }
-        preloaderProgress.style.width = count + '%';
-        preloaderCount.textContent = count;
-    }, 50);
-
+        loaderFill.style.width = count + '%';
+        loaderNum.textContent = count;
+    }, 45);
     document.body.style.overflow = 'hidden';
 
-    function triggerHeroAnimation() {
-        document.querySelectorAll('.hero [data-animate]').forEach(el => {
-            el.classList.add('visible');
-        });
-    }
+    // ── CURSOR ──
+    const cur = document.getElementById('cur');
+    const curFollow = document.getElementById('curFollow');
 
-    // ── CUSTOM CURSOR ──
-    const dot = document.getElementById('cursorDot');
-    const ring = document.getElementById('cursorRing');
-
-    if (dot && ring && window.innerWidth > 768) {
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
+    if (cur && curFollow && window.innerWidth > 768) {
+        let mx = 0, my = 0, fx = 0, fy = 0;
 
         document.addEventListener('mousemove', e => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            dot.style.left = mouseX - 4 + 'px';
-            dot.style.top = mouseY - 4 + 'px';
+            mx = e.clientX; my = e.clientY;
+            cur.style.left = mx - 4 + 'px';
+            cur.style.top = my - 4 + 'px';
         });
 
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            ring.style.left = ringX - 20 + 'px';
-            ring.style.top = ringY - 20 + 'px';
-            requestAnimationFrame(animateRing);
-        }
-        animateRing();
+        (function loop() {
+            fx += (mx - fx) * 0.12;
+            fy += (my - fy) * 0.12;
+            curFollow.style.left = fx - 20 + 'px';
+            curFollow.style.top = fy - 20 + 'px';
+            requestAnimationFrame(loop);
+        })();
 
-        // Hover effect on interactive elements
-        const hoverTargets = document.querySelectorAll(
-            'a, button, .work-link, .service-item, .magnetic'
-        );
-
-        hoverTargets.forEach(el => {
-            el.addEventListener('mouseenter', () => ring.classList.add('hover'));
-            el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+        document.querySelectorAll('[data-hover]').forEach(el => {
+            el.addEventListener('mouseenter', () => curFollow.classList.add('big'));
+            el.addEventListener('mouseleave', () => curFollow.classList.remove('big'));
         });
     }
 
-    // ── THEME TOGGLE ──
-    const themeBtn = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('theme');
+    // ── THEME ──
+    const themeSwitch = document.getElementById('themeSwitch');
+    const saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
 
-    if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-    } else {
-        // Default light
-        document.documentElement.setAttribute('data-theme', 'light');
-    }
-
-    themeBtn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
+    themeSwitch.addEventListener('click', () => {
+        const now = document.documentElement.getAttribute('data-theme');
+        const next = now === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
     });
 
-    // ── HEADER SCROLL ──
+    // ── HEADER ──
     const header = document.getElementById('header');
-    let lastScroll = 0;
+    let lastY = 0;
 
     window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
+        const y = window.scrollY;
+        header.classList.toggle('scrolled', y > 60);
 
-        // Add background
-        if (scrollY > 80) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Hide/show on scroll direction
-        if (scrollY > 500) {
-            if (scrollY > lastScroll) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
+        if (y > 400) {
+            header.style.transform = y > lastY ? 'translateY(-100%)' : 'translateY(0)';
         } else {
             header.style.transform = 'translateY(0)';
         }
-        header.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s, background 0.4s, backdrop-filter 0.4s';
-
-        lastScroll = scrollY;
-    });
+        header.style.transition = 'transform .4s cubic-bezier(.16,1,.3,1), padding .4s, background .4s';
+        lastY = y;
+    }, { passive: true });
 
     // ── MOBILE MENU ──
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const burger = document.getElementById('burger');
+    const mobMenu = document.getElementById('mobMenu');
 
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('open');
+        mobMenu.classList.toggle('open');
+        document.body.style.overflow = mobMenu.classList.contains('open') ? 'hidden' : '';
     });
 
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
+    document.querySelectorAll('.mob-link').forEach(l => {
+        l.addEventListener('click', () => {
+            burger.classList.remove('open');
+            mobMenu.classList.remove('open');
             document.body.style.overflow = '';
         });
     });
 
-    // ── SCROLL REVEAL ANIMATIONS ──
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+    // ── HERO TEXT ROTATE ──
+    const rotateEl = document.getElementById('heroRotate');
+    const words = ['Logos', 'Social Posts', 'AI Art', 'Invitations', 'Banners'];
+    let wi = 0;
 
-                    // Image reveal
-                    if (entry.target.classList.contains('about-visual')) {
-                        entry.target.classList.add('revealed');
-                    }
+    setInterval(() => {
+        rotateEl.style.opacity = '0';
+        rotateEl.style.transform = 'translateY(15px)';
 
-                    revealObserver.unobserve(entry.target);
+        setTimeout(() => {
+            wi = (wi + 1) % words.length;
+            rotateEl.textContent = words[wi];
+            rotateEl.style.opacity = '1';
+            rotateEl.style.transform = 'translateY(0)';
+        }, 300);
+    }, 2500);
+
+    rotateEl.style.transition = 'all .4s cubic-bezier(.16,1,.3,1)';
+    rotateEl.style.display = 'inline-block';
+
+    // ── SCROLL REVEAL ──
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('vis');
+                if (e.target.classList.contains('about-photo')) {
+                    e.target.classList.add('revealed');
                 }
-            });
-        },
-        { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
+                revealObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    // Observe all animated elements (except hero - handled by preloader)
-    document.querySelectorAll('[data-animate]').forEach(el => {
-        if (!el.closest('.hero')) {
-            revealObserver.observe(el);
-        }
+    document.querySelectorAll('[data-anim]').forEach(el => {
+        if (!el.closest('.hero')) revealObs.observe(el);
     });
 
-    // Observe about visual for image reveal
-    const aboutVisual = document.querySelector('.about-visual');
-    if (aboutVisual) revealObserver.observe(aboutVisual);
+    const aboutPhoto = document.querySelector('.about-photo');
+    if (aboutPhoto) revealObs.observe(aboutPhoto);
 
-    // ── COUNTER ANIMATION ──
-    const counterObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('[data-target]');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.dataset.target);
-                        const duration = 2000;
-                        const start = performance.now();
+    // ── COUNTERS ──
+    const countObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.querySelectorAll('[data-count]').forEach(c => {
+                    const target = +c.dataset.count;
+                    const dur = 2000;
+                    const start = performance.now();
+                    (function update(now) {
+                        const p = Math.min((now - start) / dur, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        c.textContent = Math.floor(eased * target);
+                        if (p < 1) requestAnimationFrame(update);
+                        else c.textContent = target;
+                    })(start);
+                });
+                countObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.5 });
 
-                        function updateCount(now) {
-                            const elapsed = now - start;
-                            const progress = Math.min(elapsed / duration, 1);
-                            // Ease out cubic
-                            const eased = 1 - Math.pow(1 - progress, 3);
-                            counter.textContent = Math.floor(eased * target);
+    document.querySelectorAll('.about-nums, .exp-badge').forEach(el => countObs.observe(el));
 
-                            if (progress < 1) {
-                                requestAnimationFrame(updateCount);
-                            } else {
-                                counter.textContent = target;
-                            }
-                        }
-                        requestAnimationFrame(updateCount);
-                    });
-                    counterObserver.unobserve(entry.target);
+    // ── FILTERS ──
+    const filterBtns = document.querySelectorAll('.fil');
+    const cards = document.querySelectorAll('.w-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const f = btn.dataset.filter;
+            cards.forEach(card => {
+                const show = f === 'all' || card.dataset.cat === f;
+                if (show) {
+                    card.classList.remove('hidden');
+                    card.style.position = '';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(.95)';
+                    setTimeout(() => {
+                        card.classList.add('hidden');
+                        card.style.position = 'absolute';
+                    }, 400);
                 }
             });
-        },
-        { threshold: 0.5 }
-    );
+        });
+    });
 
-    const statsEl = document.querySelector('.about-stats');
-    if (statsEl) counterObserver.observe(statsEl);
-
-    const badgeEl = document.querySelector('.about-badge');
-    if (badgeEl) counterObserver.observe(badgeEl);
-
-    // ── MAGNETIC BUTTONS ──
+    // ── MAGNETIC ──
     if (window.innerWidth > 768) {
-        document.querySelectorAll('.magnetic').forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        document.querySelectorAll('[data-hover]').forEach(el => {
+            el.addEventListener('mousemove', e => {
+                const r = el.getBoundingClientRect();
+                const x = e.clientX - r.left - r.width / 2;
+                const y = e.clientY - r.top - r.height / 2;
+                el.style.transform = `translate(${x * .2}px,${y * .2}px)`;
             });
-
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0, 0)';
-                btn.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = '';
+                el.style.transition = 'transform .5s cubic-bezier(.16,1,.3,1)';
             });
-
-            btn.addEventListener('mouseenter', () => {
-                btn.style.transition = 'transform 0.15s';
+            el.addEventListener('mouseenter', () => {
+                el.style.transition = 'transform .12s';
             });
         });
     }
 
-    // ── SMOOTH ANCHOR SCROLL ──
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    // ── WORK IMAGE TILT ──
+    if (window.innerWidth > 768) {
+        document.querySelectorAll('.w-img').forEach(img => {
+            img.addEventListener('mousemove', e => {
+                const r = img.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - .5;
+                const y = (e.clientY - r.top) / r.height - .5;
+                img.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+            });
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = '';
+                img.style.transition = 'transform .5s cubic-bezier(.16,1,.3,1)';
+            });
+            img.addEventListener('mouseenter', () => { img.style.transition = 'transform .1s'; });
+        });
+    }
+
+    // ── SMOOTH SCROLL ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offset = 80;
-                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) {
+                const top = t.getBoundingClientRect().top + window.scrollY - 80;
                 window.scrollTo({ top, behavior: 'smooth' });
             }
         });
     });
 
     // ── BACK TO TOP ──
-    document.getElementById('backTop').addEventListener('click', () => {
+    document.getElementById('topBtn').addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // ── PARALLAX ON WORK IMAGES ──
-    if (window.innerWidth > 768) {
-        const workImages = document.querySelectorAll('.work-placeholder');
-
-        window.addEventListener('scroll', () => {
-            workImages.forEach(img => {
-                const rect = img.getBoundingClientRect();
-                const scrollPercent = rect.top / window.innerHeight;
-                if (scrollPercent > -0.5 && scrollPercent < 1.5) {
-                    const y = scrollPercent * 30;
-                    img.style.transform = `translateY(${y}px)`;
-                }
-            });
-        }, { passive: true });
-    }
-
-    // ── NAV ACTIVE STATE ──
-    const sections = document.querySelectorAll('section[id]');
-    const navMenuLinks = document.querySelectorAll('.nav-menu-link');
+    // ── NAV ACTIVE ──
+    const secs = document.querySelectorAll('section[id]');
+    const navLnks = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const top = section.offsetTop - 150;
-            if (window.scrollY >= top) {
-                current = section.getAttribute('id');
-            }
+        let cur = '';
+        secs.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 150) cur = s.id;
         });
-
-        navMenuLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-                link.style.color = 'var(--text)';
-            } else {
-                link.style.color = '';
-            }
+        navLnks.forEach(l => {
+            l.style.color = l.getAttribute('href') === `#${cur}` ? 'var(--text)' : '';
         });
     }, { passive: true });
 
-    // ── WORK IMAGE HOVER TILT ──
+    // ── PARALLAX CARDS ──
     if (window.innerWidth > 768) {
-        document.querySelectorAll('.work-img').forEach(img => {
-            img.addEventListener('mousemove', (e) => {
-                const rect = img.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                img.style.transform = `perspective(1000px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.stack-card').forEach((c, i) => {
+                const speed = (i + 1) * 0.02;
+                const y = window.scrollY * speed;
+                c.style.transform += '';
             });
-
-            img.addEventListener('mouseleave', () => {
-                img.style.transform = 'perspective(1000px) rotateY(0) rotateX(0)';
-                img.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-            });
-
-            img.addEventListener('mouseenter', () => {
-                img.style.transition = 'transform 0.1s';
-            });
-        });
+        }, { passive: true });
     }
 });
