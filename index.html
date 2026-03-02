@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourName — Graphic Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ═══════ PRELOADER ═══════ -->
+<div class="preloader" id="preloader">
+    <div class="preloader-inner">
+        <span class="preloader-text">Portfolio</span>
+        <div class="preloader-bar">
+            <div class="preloader-progress" id="preloaderProgress"></div>
+        </div>
+        <span class="preloader-count" id="preloaderCount">0</span>
+    </div>
+</div>
+
+<!-- ═══════ CUSTOM CURSOR ═══════ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ═══════ NAVIGATION ═══════ -->
+<header class="header" id="header">
+    <nav class="nav">
+        <a href="#" class="nav-logo">
+            <span class="logo-line"></span>
+            YourName
+        </a>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#work" class="nav-menu-link" data-text="Work">Work</a></li>
+            <li><a href="#about" class="nav-menu-link" data-text="About">About</a></li>
+            <li><a href="#services" class="nav-menu-link" data-text="Services">Services</a></li>
+            <li><a href="#contact" class="nav-menu-link" data-text="Contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                </svg>
+            </button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- ═══════ MOBILE MENU OVERLAY ═══════ -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+        <a href="#work" class="mobile-link">Work</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+</div>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <div class="hero-label" data-animate="fade-up">
+            <span class="label-line"></span>
+            Graphic Designer & Visual Storyteller
+        </div>
+        <h1 class="hero-title">
+            <span class="title-line" data-animate="fade-up" data-delay="1">
+                <span class="title-word">Creating</span>
+            </span>
+            <span class="title-line" data-animate="fade-up" data-delay="2">
+                <span class="title-word">Visual</span>
+                <span class="title-word title-outline">Stories</span>
+            </span>
+            <span class="title-line" data-animate="fade-up" data-delay="3">
+                <span class="title-word">That</span>
+                <span class="title-word title-accent">Inspire</span>
+            </span>
+        </h1>
+        <p class="hero-desc" data-animate="fade-up" data-delay="4">
+            I craft meaningful brands and digital experiences<br>
+            that connect with people on a deeper level.
+        </p>
+        <div class="hero-cta" data-animate="fade-up" data-delay="5">
+            <a href="#work" class="cta-btn magnetic">
+                <span>View My Work</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+            </a>
+            <a href="#contact" class="cta-link magnetic">
+                <span>Get In Touch</span>
+            </a>
+        </div>
+    </div>
+    <div class="scroll-hint" data-animate="fade-in" data-delay="6">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ═══════ MARQUEE ═══════ -->
+<div class="marquee" data-animate="fade-in">
+    <div class="marquee-track">
+        <div class="marquee-content">
+            <span>Photoshop</span><span class="marquee-dot">◆</span>
+            <span>Illustrator</span><span class="marquee-dot">◆</span>
+            <span>Figma</span><span class="marquee-dot">◆</span>
+            <span>After Effects</span><span class="marquee-dot">◆</span>
+            <span>InDesign</span><span class="marquee-dot">◆</span>
+            <span>Premiere Pro</span><span class="marquee-dot">◆</span>
+            <span>Blender</span><span class="marquee-dot">◆</span>
+            <span>Canva</span><span class="marquee-dot">◆</span>
+            <span>Procreate</span><span class="marquee-dot">◆</span>
+            <span>Lightroom</span><span class="marquee-dot">◆</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+            <span>Photoshop</span><span class="marquee-dot">◆</span>
+            <span>Illustrator</span><span class="marquee-dot">◆</span>
+            <span>Figma</span><span class="marquee-dot">◆</span>
+            <span>After Effects</span><span class="marquee-dot">◆</span>
+            <span>InDesign</span><span class="marquee-dot">◆</span>
+            <span>Premiere Pro</span><span class="marquee-dot">◆</span>
+            <span>Blender</span><span class="marquee-dot">◆</span>
+            <span>Canva</span><span class="marquee-dot">◆</span>
+            <span>Procreate</span><span class="marquee-dot">◆</span>
+            <span>Lightroom</span><span class="marquee-dot">◆</span>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════ SELECTED WORKS ═══════ -->
+<section class="section work" id="work">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-label" data-animate="fade-up">Portfolio</span>
+            <h2 class="section-title" data-animate="fade-up" data-delay="1">
+                Selected<br>Works
+            </h2>
+        </div>
+
+        <div class="work-grid">
+            <!-- Project 1 — LARGE -->
+            <article class="work-item work-large" data-animate="fade-up">
+                <a href="#" class="work-link">
+                    <div class="work-img">
+                        <div class="work-placeholder" style="--g: linear-gradient(135deg, #f8e8d0, #e8b88a, #c4603d)">
+                            <span>Brand Identity</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-meta">
+                            <span class="work-cat">Branding</span>
+                            <span class="work-year">2024</span>
+                        </div>
+                        <h3 class="work-title">Artisan Coffee Co.</h3>
+                        <p class="work-desc">Complete brand identity for a specialty coffee roaster including logo, packaging, and collateral.</p>
+                        <span class="work-view">View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Project 2 — SMALL -->
+            <article class="work-item work-small" data-animate="fade-up" data-delay="1">
+                <a href="#" class="work-link">
+                    <div class="work-img">
+                        <div class="work-placeholder" style="--g: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483)">
+                            <span>Poster Design</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-meta">
+                            <span class="work-cat">Print</span>
+                            <span class="work-year">2024</span>
+                        </div>
+                        <h3 class="work-title">Music Festival</h3>
+                        <p class="work-desc">Event poster series for an annual music and arts festival.</p>
+                        <span class="work-view">View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Project 3 — SMALL -->
+            <article class="work-item work-small" data-animate="fade-up">
+                <a href="#" class="work-link">
+                    <div class="work-img">
+                        <div class="work-placeholder" style="--g: linear-gradient(135deg, #ffecd2, #fcb69f, #ff9a9e)">
+                            <span>Packaging</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-meta">
+                            <span class="work-cat">Packaging</span>
+                            <span class="work-year">2024</span>
+                        </div>
+                        <h3 class="work-title">Bloom Skincare</h3>
+                        <p class="work-desc">Luxury skincare packaging with botanical illustrations.</p>
+                        <span class="work-view">View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Project 4 — LARGE -->
+            <article class="work-item work-large" data-animate="fade-up" data-delay="1">
+                <a href="#" class="work-link">
+                    <div class="work-img">
+                        <div class="work-placeholder" style="--g: linear-gradient(135deg, #667eea, #764ba2)">
+                            <span>UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-meta">
+                            <span class="work-cat">Digital</span>
+                            <span class="work-year">2023</span>
+                        </div>
+                        <h3 class="work-title">FinTech Dashboard</h3>
+                        <p class="work-desc">Clean dashboard design for a modern financial technology platform.</p>
+                        <span class="work-view">View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Project 5 — SMALL -->
+            <article class="work-item work-small" data-animate="fade-up">
+                <a href="#" class="work-link">
+                    <div class="work-img">
+                        <div class="work-placeholder" style="--g: linear-gradient(135deg, #2d3436, #636e72, #b2bec3)">
+                            <span>Typography</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-meta">
+                            <span class="work-cat">Typography</span>
+                            <span class="work-year">2023</span>
+                        </div>
+                        <h3 class="work-title">Type Exploration</h3>
+                        <p class="work-desc">Experimental typography project exploring modern letterforms.</p>
+                        <span class="work-view">View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Project 6 — SMALL -->
+            <article class="work-item work-small" data-animate="fade-up" data-delay="1">
+                <a href="#" class="work-link">
+                    <div class="work-img">
+                        <div class="work-placeholder" style="--g: linear-gradient(135deg, #a8e6cf, #dcedc1, #ffd3b6, #ffaaa5)">
+                            <span>Social Media</span>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <div class="work-meta">
+                            <span class="work-cat">Digital</span>
+                            <span class="work-year">2023</span>
+                        </div>
+                        <h3 class="work-title">Wellness Brand</h3>
+                        <p class="work-desc">Social media design system for a health & wellness startup.</p>
+                        <span class="work-view">View Project
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="section about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-visual" data-animate="fade-up">
+                <div class="about-img-wrap">
+                    <div class="about-img-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Your Photo</span>
+                    </div>
+                    <div class="img-reveal"></div>
+                </div>
+                <div class="about-badge">
+                    <span class="badge-num" data-target="5">0</span>
+                    <span class="badge-label">Years of<br>Experience</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-label" data-animate="fade-up">About</span>
+                <h2 class="section-title" data-animate="fade-up" data-delay="1">
+                    Design is not just<br>what it looks like —<br>
+                    <em>it's how it works.</em>
+                </h2>
+                <div class="about-text" data-animate="fade-up" data-delay="2">
+                    <p>
+                        Hi, I'm <strong>YourName</strong> — a graphic designer based in Gujarat, India.
+                        I believe great design is invisible; it doesn't scream for attention,
+                        it earns it. With every project, I aim to create work that feels
+                        both timeless and contemporary.
+                    </p>
+                    <p>
+                        My approach combines strategic thinking with creative execution.
+                        Whether it's building a brand from scratch or redesigning a digital
+                        experience, I focus on clarity, emotion, and purpose.
+                    </p>
+                </div>
+                <div class="about-stats" data-animate="fade-up" data-delay="3">
+                    <div class="stat">
+                        <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="30">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">Awards Won</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section class="section services" id="services">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-label" data-animate="fade-up">What I Do</span>
+            <h2 class="section-title" data-animate="fade-up" data-delay="1">
+                Services
+            </h2>
+        </div>
+        <div class="services-list">
+            <div class="service-item" data-animate="fade-up">
+                <span class="service-num">01</span>
+                <div class="service-content">
+                    <h3>Brand Identity</h3>
+                    <p>Logo design, brand guidelines, visual identity systems that tell your unique story.</p>
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+            </div>
+            <div class="service-item" data-animate="fade-up" data-delay="1">
+                <span class="service-num">02</span>
+                <div class="service-content">
+                    <h3>Print Design</h3>
+                    <p>Posters, brochures, business cards, editorial layouts — pixel-perfect for print.</p>
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+            </div>
+            <div class="service-item" data-animate="fade-up" data-delay="2">
+                <span class="service-num">03</span>
+                <div class="service-content">
+                    <h3>Digital Design</h3>
+                    <p>UI/UX design, web design, social media content, digital advertising campaigns.</p>
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+            </div>
+            <div class="service-item" data-animate="fade-up" data-delay="3">
+                <span class="service-num">04</span>
+                <div class="service-content">
+                    <h3>Packaging Design</h3>
+                    <p>Product packaging that stands out on shelves and creates memorable unboxing experiences.</p>
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+            </div>
+            <div class="service-item" data-animate="fade-up" data-delay="4">
+                <span class="service-num">05</span>
+                <div class="service-content">
+                    <h3>Motion Graphics</h3>
+                    <p>Animated logos, explainer videos, social media animations that bring brands to life.</p>
+                </div>
+                <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section class="section contact" id="contact">
+    <div class="container">
+        <div class="contact-inner">
+            <span class="section-label" data-animate="fade-up">Let's Connect</span>
+            <h2 class="contact-title" data-animate="fade-up" data-delay="1">
+                Have a project<br>in mind?
+                <span class="contact-highlight">Let's talk.</span>
+            </h2>
+            <div class="contact-email" data-animate="fade-up" data-delay="2">
+                <a href="mailto:hello@yourname.com" class="email-link magnetic">
+                    hello@yourname.com
+                </a>
+            </div>
+            <div class="contact-grid" data-animate="fade-up" data-delay="3">
+                <div class="contact-block">
+                    <span class="contact-label">Location</span>
+                    <p>Gujarat, India</p>
+                </div>
+                <div class="contact-block">
+                    <span class="contact-label">Phone</span>
+                    <p>+91 98765 43210</p>
+                </div>
+                <div class="contact-block">
+                    <span class="contact-label">Social</span>
+                    <div class="social-row">
+                        <a href="#" class="social magnetic">Instagram</a>
+                        <a href="#" class="social magnetic">Behance</a>
+                        <a href="#" class="social magnetic">Dribbble</a>
+                        <a href="#" class="social magnetic">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <span class="footer-copy">&copy; 2025 YourName</span>
+            <span class="footer-note">Crafted with intention</span>
+            <button class="back-top magnetic" id="backTop">
+                <span>Back to Top</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19V5M5 12l7-7 7 7"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
