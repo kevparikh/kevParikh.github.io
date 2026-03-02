@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,388 +9,292 @@
 </head>
 <body>
 
-<!-- ══════ LOADER ══════ -->
+<!-- LOADER -->
 <div class="loader" id="loader">
-    <div class="loader-inner">
+    <div class="loader-box">
         <div class="loader-name">YourName</div>
-        <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
-        <div class="loader-num" id="loaderNum">0</div>
+        <div class="loader-track"><div class="loader-fill" id="loaderFill"></div></div>
+        <div class="loader-count" id="loaderCount">0</div>
     </div>
 </div>
 
-<!-- ══════ CURSOR ══════ -->
-<div class="cur" id="cur"></div>
-<div class="cur-follow" id="curFollow"></div>
-
-<!-- ══════ NAV ══════ -->
+<!-- NAV -->
 <header class="header" id="header">
-    <nav class="nav">
-        <a href="#" class="nav-logo" data-hover>
-            <span class="logo-mark"></span>
+    <nav class="nav container">
+        <a href="#" class="logo">
+            <span class="logo-bar"></span>
             YourName
         </a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#work" class="nav-link" data-hover>Work</a></li>
-            <li><a href="#about" class="nav-link" data-hover>About</a></li>
-            <li><a href="#services" class="nav-link" data-hover>Services</a></li>
-            <li><a href="#contact" class="nav-link" data-hover>Contact</a></li>
+        <ul class="nav-list" id="navList">
+            <li><a href="#work" class="nav-item">Work</a></li>
+            <li><a href="#about" class="nav-item">About</a></li>
+            <li><a href="#services" class="nav-item">Services</a></li>
+            <li><a href="#contact" class="nav-item">Contact</a></li>
         </ul>
         <div class="nav-right">
-            <button class="theme-switch" id="themeSwitch" data-hover aria-label="Theme">
-                <span class="switch-sun">☀</span>
-                <span class="switch-moon">☾</span>
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
             </button>
-            <button class="burger" id="burger" data-hover aria-label="Menu">
-                <span></span><span></span>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
 </header>
 
-<!-- ══════ MOBILE MENU ══════ -->
+<!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
-    <div class="mob-inner">
-        <a href="#work" class="mob-link" data-hover>Work</a>
-        <a href="#about" class="mob-link" data-hover>About</a>
-        <a href="#services" class="mob-link" data-hover>Services</a>
-        <a href="#contact" class="mob-link" data-hover>Contact</a>
-        <div class="mob-footer">
-            <a href="#">Instagram</a>
-            <a href="#">Behance</a>
-            <a href="#">WhatsApp</a>
-        </div>
-    </div>
+    <a href="#work" class="mob-link">Work</a>
+    <a href="#about" class="mob-link">About</a>
+    <a href="#services" class="mob-link">Services</a>
+    <a href="#contact" class="mob-link">Contact</a>
 </div>
 
-<!-- ══════ HERO ══════ -->
+<!-- HERO -->
 <section class="hero" id="hero">
-    <div class="hero-grid">
-        <!-- Left Content -->
-        <div class="hero-content">
-            <div class="hero-tag" data-anim="up">
-                <span class="tag-dot"></span>
+    <div class="container hero-grid">
+        <div class="hero-left">
+            <div class="hero-tag anim-item">
+                <span class="green-dot"></span>
                 Available for Work
             </div>
             <h1 class="hero-title">
-                <span class="h-line" data-anim="up" data-d="1">
-                    <span>I Design</span>
-                </span>
-                <span class="h-line" data-anim="up" data-d="2">
-                    <span class="h-rotate" id="heroRotate">Logos</span>
-                </span>
-                <span class="h-line" data-anim="up" data-d="3">
-                    <span>That</span>
-                    <span class="h-accent">Stand Out</span>
-                </span>
+                <span class="anim-item">I Design</span>
+                <span class="anim-item"><span class="rotating-text" id="rotatingText">Logos</span></span>
+                <span class="anim-item">That <span class="accent">Stand Out</span></span>
             </h1>
-            <p class="hero-desc" data-anim="up" data-d="4">
-                From social media graphics to brand identities —<br>
+            <p class="hero-desc anim-item">
+                From social media graphics to brand identities —
                 I create designs that grab attention and tell your story.
             </p>
-            <div class="hero-actions" data-anim="up" data-d="5">
-                <a href="#work" class="btn-main" data-hover>
+            <div class="hero-btns anim-item">
+                <a href="#work" class="btn-primary">
                     <span>View My Work</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                 </a>
-                <a href="https://wa.me/919876543210" target="_blank" class="btn-wa" data-hover>
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <a href="https://wa.me/919876543210" target="_blank" class="btn-whatsapp">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     <span>WhatsApp</span>
                 </a>
             </div>
         </div>
-
-        <!-- Right Visual - Stacked Work Cards -->
-        <div class="hero-visual" data-anim="up" data-d="3">
-            <div class="stack-wrap">
-                <div class="stack-card card-1" data-tilt>
-                    <div class="card-fill" style="--bg: linear-gradient(135deg, #ff6b6b, #ee5a24)">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg>
-                        </div>
-                        <span class="card-label">Social Media</span>
+        <div class="hero-right anim-item">
+            <div class="cards-stack">
+                <div class="float-card fc-1">
+                    <div class="fc-inner" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24)">
+                        <span>Social<br>Media</span>
                     </div>
                 </div>
-                <div class="stack-card card-2" data-tilt>
-                    <div class="card-fill" style="--bg: linear-gradient(135deg, #a29bfe, #6c5ce7)">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <span class="card-label">Logo Design</span>
+                <div class="float-card fc-2">
+                    <div class="fc-inner" style="background: linear-gradient(135deg, #a29bfe, #6c5ce7)">
+                        <span>Logo<br>Design</span>
                     </div>
                 </div>
-                <div class="stack-card card-3" data-tilt>
-                    <div class="card-fill" style="--bg: linear-gradient(135deg, #fd79a8, #e84393)">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                        </div>
-                        <span class="card-label">AI Designs</span>
+                <div class="float-card fc-3">
+                    <div class="fc-inner" style="background: linear-gradient(135deg, #fd79a8, #e84393)">
+                        <span>AI<br>Designs</span>
                     </div>
                 </div>
-                <div class="stack-card card-4" data-tilt>
-                    <div class="card-fill" style="--bg: linear-gradient(135deg, #55efc4, #00b894)">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                        </div>
-                        <span class="card-label">Banners</span>
+                <div class="float-card fc-4">
+                    <div class="fc-inner" style="background: linear-gradient(135deg, #55efc4, #00b894)">
+                        <span>Banners</span>
                     </div>
                 </div>
-                <div class="stack-card card-5" data-tilt>
-                    <div class="card-fill" style="--bg: linear-gradient(135deg, #fdcb6e, #e17055)">
-                        <div class="card-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15h6"/></svg>
-                        </div>
-                        <span class="card-label">Invitations</span>
+                <div class="float-card fc-5">
+                    <div class="fc-inner" style="background: linear-gradient(135deg, #fdcb6e, #e17055)">
+                        <span>Invite<br>Cards</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="scroll-cue" data-anim="fade" data-d="6">
-        <div class="scroll-bar"><div class="scroll-fill"></div></div>
+    <div class="scroll-hint anim-item">
+        <div class="scroll-line"></div>
         <span>Scroll</span>
     </div>
 </section>
 
-<!-- ══════ TOOLS MARQUEE ══════ -->
-<div class="marquee">
-    <div class="marquee-rail">
-        <div class="marquee-strip">
-            <span>Photoshop</span><span class="m-sep">✦</span>
-            <span>Illustrator</span><span class="m-sep">✦</span>
-            <span>Figma</span><span class="m-sep">✦</span>
-            <span>Canva</span><span class="m-sep">✦</span>
-            <span>After Effects</span><span class="m-sep">✦</span>
-            <span>Midjourney</span><span class="m-sep">✦</span>
-            <span>InDesign</span><span class="m-sep">✦</span>
-            <span>Lightroom</span><span class="m-sep">✦</span>
-            <span>Premiere Pro</span><span class="m-sep">✦</span>
-            <span>ChatGPT</span><span class="m-sep">✦</span>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+    <div class="marquee-track">
+        <div class="marquee-slide">
+            <span>Photoshop</span><span class="dot">✦</span>
+            <span>Illustrator</span><span class="dot">✦</span>
+            <span>Figma</span><span class="dot">✦</span>
+            <span>Canva</span><span class="dot">✦</span>
+            <span>After Effects</span><span class="dot">✦</span>
+            <span>Midjourney</span><span class="dot">✦</span>
+            <span>InDesign</span><span class="dot">✦</span>
+            <span>Lightroom</span><span class="dot">✦</span>
+            <span>Premiere Pro</span><span class="dot">✦</span>
         </div>
-        <div class="marquee-strip" aria-hidden="true">
-            <span>Photoshop</span><span class="m-sep">✦</span>
-            <span>Illustrator</span><span class="m-sep">✦</span>
-            <span>Figma</span><span class="m-sep">✦</span>
-            <span>Canva</span><span class="m-sep">✦</span>
-            <span>After Effects</span><span class="m-sep">✦</span>
-            <span>Midjourney</span><span class="m-sep">✦</span>
-            <span>InDesign</span><span class="m-sep">✦</span>
-            <span>Lightroom</span><span class="m-sep">✦</span>
-            <span>Premiere Pro</span><span class="m-sep">✦</span>
-            <span>ChatGPT</span><span class="m-sep">✦</span>
+        <div class="marquee-slide">
+            <span>Photoshop</span><span class="dot">✦</span>
+            <span>Illustrator</span><span class="dot">✦</span>
+            <span>Figma</span><span class="dot">✦</span>
+            <span>Canva</span><span class="dot">✦</span>
+            <span>After Effects</span><span class="dot">✦</span>
+            <span>Midjourney</span><span class="dot">✦</span>
+            <span>InDesign</span><span class="dot">✦</span>
+            <span>Lightroom</span><span class="dot">✦</span>
+            <span>Premiere Pro</span><span class="dot">✦</span>
         </div>
     </div>
 </div>
 
-<!-- ══════ WORK / PORTFOLIO ══════ -->
-<section class="sec work" id="work">
+<!-- WORK -->
+<section class="sec" id="work">
     <div class="container">
-        <div class="sec-top">
+        <div class="sec-header">
             <div>
-                <span class="sec-label" data-anim="up">Portfolio</span>
-                <h2 class="sec-title" data-anim="up" data-d="1">Selected Work</h2>
+                <span class="sec-label reveal">Portfolio</span>
+                <h2 class="sec-title reveal">Selected Work</h2>
             </div>
-            <div class="filters" data-anim="up" data-d="2">
-                <button class="fil active" data-filter="all" data-hover>All</button>
-                <button class="fil" data-filter="social" data-hover>Social Media</button>
-                <button class="fil" data-filter="logo" data-hover>Logos</button>
-                <button class="fil" data-filter="ai" data-hover>AI Designs</button>
-                <button class="fil" data-filter="invitation" data-hover>Invitations</button>
-                <button class="fil" data-filter="banner" data-hover>Banners</button>
+            <div class="filter-bar reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="social">Social Media</button>
+                <button class="filter-btn" data-filter="logo">Logos</button>
+                <button class="filter-btn" data-filter="ai">AI Designs</button>
+                <button class="filter-btn" data-filter="invitation">Invitations</button>
+                <button class="filter-btn" data-filter="banner">Banners</button>
             </div>
         </div>
 
-        <div class="work-grid" id="workGrid">
-            <!-- 1 -->
-            <article class="w-card" data-cat="social" data-anim="up">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #ff9a9e, #fecfef)">
-                            <span>Instagram Post</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">Social Media</span>
-                        <h3>Restaurant Promo Post</h3>
-                    </div>
-                </a>
-            </article>
-            <!-- 2 -->
-            <article class="w-card" data-cat="logo" data-anim="up" data-d="1">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #1a1a2e, #533483)">
-                            <span>Logo</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">Logo Design</span>
-                        <h3>Cafe Brand Identity</h3>
-                    </div>
-                </a>
-            </article>
-            <!-- 3 -->
-            <article class="w-card" data-cat="ai" data-anim="up" data-d="2">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #667eea, #764ba2)">
-                            <span>AI Art</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">AI Design</span>
-                        <h3>Futuristic Product Mockup</h3>
-                    </div>
-                </a>
-            </article>
-            <!-- 4 -->
-            <article class="w-card" data-cat="invitation" data-anim="up">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #fdcb6e, #e17055)">
-                            <span>Invitation</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">Invitation</span>
-                        <h3>Wedding Card Design</h3>
-                    </div>
-                </a>
-            </article>
-            <!-- 5 -->
-            <article class="w-card" data-cat="banner" data-anim="up" data-d="1">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #55efc4, #00b894)">
-                            <span>Banner</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">Banner</span>
-                        <h3>Event Flex Banner</h3>
-                    </div>
-                </a>
-            </article>
-            <!-- 6 -->
-            <article class="w-card" data-cat="social" data-anim="up" data-d="2">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #a29bfe, #6c5ce7)">
-                            <span>Carousel</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">Social Media</span>
-                        <h3>Brand Carousel Post</h3>
-                    </div>
-                </a>
-            </article>
-            <!-- 7 -->
-            <article class="w-card" data-cat="logo" data-anim="up">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #2d3436, #636e72)">
-                            <span>Logo</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">Logo Design</span>
-                        <h3>Tech Startup Logo</h3>
-                    </div>
-                </a>
-            </article>
-            <!-- 8 -->
-            <article class="w-card" data-cat="ai" data-anim="up" data-d="1">
-                <a href="#" class="w-link" data-hover>
-                    <div class="w-img">
-                        <div class="w-ph" style="--bg: linear-gradient(135deg, #fd79a8, #e84393)">
-                            <span>AI Art</span>
-                        </div>
-                        <div class="w-overlay">
-                            <span class="w-view">View ↗</span>
-                        </div>
-                    </div>
-                    <div class="w-info">
-                        <span class="w-cat">AI Design</span>
-                        <h3>Fantasy Character Art</h3>
-                    </div>
-                </a>
-            </article>
+        <div class="portfolio-grid" id="portfolioGrid">
+            <div class="p-card reveal" data-cat="social">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #ff9a9e, #fecfef)">
+                    <span class="p-label">Instagram Post</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">Social Media</span>
+                    <h3>Restaurant Promo</h3>
+                </div>
+            </div>
+            <div class="p-card reveal" data-cat="logo">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #1a1a2e, #533483)">
+                    <span class="p-label">Logo</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">Logo Design</span>
+                    <h3>Cafe Brand Identity</h3>
+                </div>
+            </div>
+            <div class="p-card reveal" data-cat="ai">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #667eea, #764ba2)">
+                    <span class="p-label">AI Art</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">AI Design</span>
+                    <h3>Futuristic Mockup</h3>
+                </div>
+            </div>
+            <div class="p-card reveal" data-cat="invitation">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #fdcb6e, #e17055)">
+                    <span class="p-label">Invitation</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">Invitation</span>
+                    <h3>Wedding Card</h3>
+                </div>
+            </div>
+            <div class="p-card reveal" data-cat="banner">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #55efc4, #00b894)">
+                    <span class="p-label">Banner</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">Banner</span>
+                    <h3>Event Flex Banner</h3>
+                </div>
+            </div>
+            <div class="p-card reveal" data-cat="social">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #a29bfe, #6c5ce7)">
+                    <span class="p-label">Carousel</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">Social Media</span>
+                    <h3>Brand Carousel</h3>
+                </div>
+            </div>
+            <div class="p-card reveal" data-cat="logo">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #2d3436, #636e72)">
+                    <span class="p-label">Logo</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">Logo Design</span>
+                    <h3>Tech Startup Logo</h3>
+                </div>
+            </div>
+            <div class="p-card reveal" data-cat="ai">
+                <div class="p-thumb" style="background: linear-gradient(135deg, #fd79a8, #e84393)">
+                    <span class="p-label">AI Art</span>
+                    <div class="p-hover"><span>View ↗</span></div>
+                </div>
+                <div class="p-info">
+                    <span class="p-tag">AI Design</span>
+                    <h3>Fantasy Character</h3>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ══════ ABOUT ══════ -->
-<section class="sec about" id="about">
+<!-- ABOUT -->
+<section class="sec sec-alt" id="about">
     <div class="container">
-        <div class="about-layout">
-            <div class="about-photo" data-anim="up">
-                <div class="photo-wrap">
-                    <div class="photo-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div class="about-grid">
+            <div class="about-img reveal">
+                <div class="img-box">
+                    <div class="img-placeholder">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                         <span>Your Photo</span>
                     </div>
-                    <div class="photo-reveal"></div>
                 </div>
-                <div class="exp-badge">
-                    <span class="exp-num" data-count="3">0</span>
-                    <span class="exp-txt">Years<br>Experience</span>
+                <div class="exp-tag">
+                    <strong class="exp-num" data-count="3">0</strong>
+                    <small>Years<br>Exp.</small>
                 </div>
             </div>
-            <div class="about-info">
-                <span class="sec-label" data-anim="up">About Me</span>
-                <h2 class="sec-title" data-anim="up" data-d="1">
-                    Design is thinking<br>made <em>visual.</em>
-                </h2>
-                <div class="about-body" data-anim="up" data-d="2">
-                    <p>
-                        Hey! I'm <strong>YourName</strong> — a graphic designer from Gujarat, India.
-                        I create eye-catching social media graphics, memorable logos,
-                        AI-powered artwork, beautiful invitations, and impactful banners.
-                    </p>
-                    <p>
-                        I believe every design should solve a problem and look amazing doing it.
-                        Whether you're a startup needing a logo or a business wanting daily
-                        social media content — I've got you covered.
-                    </p>
-                    <p>
-                        Currently also exploring <strong>video editing & motion graphics</strong>
-                        to add even more value to my creative toolkit. 🎬
-                    </p>
+            <div class="about-text">
+                <span class="sec-label reveal">About Me</span>
+                <h2 class="sec-title reveal">Design is thinking<br>made <em>visual.</em></h2>
+                <div class="about-desc reveal">
+                    <p>Hey! I'm <strong>YourName</strong> — a graphic designer from Gujarat, India. I create eye-catching social media graphics, memorable logos, AI-powered artwork, beautiful invitations, and impactful banners.</p>
+                    <p>I believe every design should solve a problem and look amazing doing it. Whether you're a startup needing a logo or a business wanting daily social media content — I've got you covered.</p>
+                    <p>Currently also exploring <strong>video editing & motion graphics</strong> to add even more value to my creative toolkit. 🎬</p>
                 </div>
-                <div class="about-nums" data-anim="up" data-d="3">
-                    <div class="num-item">
-                        <span class="num-val" data-count="50">0</span><span class="num-plus">+</span>
-                        <span class="num-label">Projects Done</span>
+                <div class="stats reveal">
+                    <div class="stat-item">
+                        <span class="stat-num" data-count="50">0</span><span class="stat-plus">+</span>
+                        <span class="stat-text">Projects Done</span>
                     </div>
-                    <div class="num-item">
-                        <span class="num-val" data-count="30">0</span><span class="num-plus">+</span>
-                        <span class="num-label">Happy Clients</span>
+                    <div class="stat-item">
+                        <span class="stat-num" data-count="30">0</span><span class="stat-plus">+</span>
+                        <span class="stat-text">Happy Clients</span>
                     </div>
-                    <div class="num-item">
-                        <span class="num-val" data-count="5">0</span><span class="num-plus">+</span>
-                        <span class="num-label">Tools Mastered</span>
+                    <div class="stat-item">
+                        <span class="stat-num" data-count="5">0</span><span class="stat-plus">+</span>
+                        <span class="stat-text">Tools Mastered</span>
                     </div>
                 </div>
             </div>
@@ -398,142 +302,130 @@
     </div>
 </section>
 
-<!-- ══════ SERVICES ══════ -->
-<section class="sec services" id="services">
+<!-- SERVICES -->
+<section class="sec" id="services">
     <div class="container">
-        <div class="sec-top">
-            <div>
-                <span class="sec-label" data-anim="up">What I Do</span>
-                <h2 class="sec-title" data-anim="up" data-d="1">Services</h2>
-            </div>
-        </div>
+        <span class="sec-label reveal">What I Do</span>
+        <h2 class="sec-title reveal">Services</h2>
         <div class="svc-list">
-            <div class="svc" data-anim="up" data-hover>
-                <span class="svc-num">01</span>
-                <div class="svc-body">
+            <div class="svc reveal">
+                <span class="svc-no">01</span>
+                <div class="svc-info">
                     <h3>Social Media Design</h3>
-                    <p>Instagram posts, stories, carousels, Facebook covers, YouTube thumbnails — scroll-stopping content for your brand.</p>
+                    <p>Instagram posts, stories, carousels, Facebook covers, YouTube thumbnails — scroll-stopping content.</p>
                 </div>
-                <div class="svc-arrow">↗</div>
+                <span class="svc-arrow">↗</span>
             </div>
-            <div class="svc" data-anim="up" data-d="1" data-hover>
-                <span class="svc-num">02</span>
-                <div class="svc-body">
+            <div class="svc reveal">
+                <span class="svc-no">02</span>
+                <div class="svc-info">
                     <h3>Logo Design</h3>
-                    <p>Unique, memorable logos that capture your brand's personality. Includes multiple concepts and revisions.</p>
+                    <p>Unique, memorable logos that capture your brand's personality. Multiple concepts + revisions.</p>
                 </div>
-                <div class="svc-arrow">↗</div>
+                <span class="svc-arrow">↗</span>
             </div>
-            <div class="svc" data-anim="up" data-d="2" data-hover>
-                <span class="svc-num">03</span>
-                <div class="svc-body">
+            <div class="svc reveal">
+                <span class="svc-no">03</span>
+                <div class="svc-info">
                     <h3>AI-Based Designs</h3>
-                    <p>Cutting-edge visuals using AI tools like Midjourney & DALL·E — futuristic artwork, product mockups, concept art.</p>
+                    <p>Cutting-edge visuals using Midjourney & DALL·E — product mockups, concept art, futuristic artwork.</p>
                 </div>
-                <div class="svc-arrow">↗</div>
+                <span class="svc-arrow">↗</span>
             </div>
-            <div class="svc" data-anim="up" data-d="3" data-hover>
-                <span class="svc-num">04</span>
-                <div class="svc-body">
+            <div class="svc reveal">
+                <span class="svc-no">04</span>
+                <div class="svc-info">
                     <h3>Invitation Design</h3>
-                    <p>Wedding cards, birthday invites, event invitations — elegant designs for your special moments.</p>
+                    <p>Wedding cards, birthday invites, event invitations — elegant designs for special moments.</p>
                 </div>
-                <div class="svc-arrow">↗</div>
+                <span class="svc-arrow">↗</span>
             </div>
-            <div class="svc" data-anim="up" data-d="4" data-hover>
-                <span class="svc-num">05</span>
-                <div class="svc-body">
+            <div class="svc reveal">
+                <span class="svc-no">05</span>
+                <div class="svc-info">
                     <h3>Banner & Flex Design</h3>
                     <p>Event banners, shop flex, hoardings, standees — large format designs that demand attention.</p>
                 </div>
-                <div class="svc-arrow">↗</div>
+                <span class="svc-arrow">↗</span>
             </div>
-            <div class="svc svc-coming" data-anim="up" data-d="5" data-hover>
-                <span class="svc-num">06</span>
-                <div class="svc-body">
-                    <h3>Video Editing <span class="coming-badge">Coming Soon</span></h3>
-                    <p>Reels, promo videos, motion graphics — currently learning and will be available soon!</p>
+            <div class="svc svc-soon reveal">
+                <span class="svc-no">06</span>
+                <div class="svc-info">
+                    <h3>Video Editing <span class="badge-soon">Coming Soon</span></h3>
+                    <p>Reels, promo videos, motion graphics — currently learning and coming soon!</p>
                 </div>
-                <div class="svc-arrow">↗</div>
+                <span class="svc-arrow">↗</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ══════ PROCESS ══════ -->
-<section class="sec process">
+<!-- PROCESS -->
+<section class="sec sec-alt">
     <div class="container">
-        <div class="sec-top">
-            <div>
-                <span class="sec-label" data-anim="up">How I Work</span>
-                <h2 class="sec-title" data-anim="up" data-d="1">My Process</h2>
-            </div>
-        </div>
-        <div class="process-grid">
-            <div class="step" data-anim="up">
-                <div class="step-num">01</div>
+        <span class="sec-label reveal">How I Work</span>
+        <h2 class="sec-title reveal">My Process</h2>
+        <div class="process-row">
+            <div class="step reveal">
+                <div class="step-no">01</div>
                 <h3>Discuss</h3>
-                <p>We talk about your brand, audience, and what you need. WhatsApp/call — whatever works!</p>
+                <p>We talk about your brand, audience, and needs. WhatsApp/call — whatever works!</p>
             </div>
-            <div class="step" data-anim="up" data-d="1">
-                <div class="step-num">02</div>
+            <div class="step reveal">
+                <div class="step-no">02</div>
                 <h3>Concept</h3>
                 <p>I create 2-3 initial concepts for you to review. Your feedback shapes the direction.</p>
             </div>
-            <div class="step" data-anim="up" data-d="2">
-                <div class="step-num">03</div>
+            <div class="step reveal">
+                <div class="step-no">03</div>
                 <h3>Refine</h3>
-                <p>Based on your feedback, I polish the design to perfection. Revisions included.</p>
+                <p>Based on feedback, I polish the design to perfection. Revisions included.</p>
             </div>
-            <div class="step" data-anim="up" data-d="3">
-                <div class="step-num">04</div>
+            <div class="step reveal">
+                <div class="step-no">04</div>
                 <h3>Deliver</h3>
-                <p>Final files in all formats you need — PNG, JPG, PDF, AI, PSD. Ready to use!</p>
+                <p>Final files in all formats — PNG, JPG, PDF, AI, PSD. Ready to use!</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ══════ CTA BANNER ══════ -->
-<section class="cta-section" data-anim="up">
+<!-- CTA -->
+<section class="sec">
     <div class="container">
-        <div class="cta-box">
+        <div class="cta-banner reveal">
             <h2>Ready to make your brand look amazing?</h2>
             <p>Let's create something beautiful together.</p>
-            <a href="https://wa.me/919876543210" target="_blank" class="btn-main btn-white" data-hover>
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <a href="https://wa.me/919876543210" target="_blank" class="btn-cta">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                 <span>Message on WhatsApp</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- ══════ CONTACT ══════ -->
-<section class="sec contact" id="contact">
+<!-- CONTACT -->
+<section class="sec sec-alt" id="contact">
     <div class="container">
-        <div class="contact-wrap">
-            <span class="sec-label" data-anim="up">Get In Touch</span>
-            <h2 class="contact-heading" data-anim="up" data-d="1">
-                Let's work<br><span class="h-accent">together.</span>
-            </h2>
-            <div class="contact-email" data-anim="up" data-d="2">
-                <a href="mailto:hello@yourname.com" class="email-big" data-hover>hello@yourname.com</a>
-            </div>
-            <div class="contact-details" data-anim="up" data-d="3">
-                <div class="c-block">
-                    <span class="c-label">Phone / WhatsApp</span>
+        <div class="contact-center">
+            <span class="sec-label reveal">Get In Touch</span>
+            <h2 class="contact-title reveal">Let's work<br><span class="accent">together.</span></h2>
+            <a href="mailto:hello@yourname.com" class="email-link reveal">hello@yourname.com</a>
+            <div class="contact-row reveal">
+                <div class="contact-col">
+                    <small>Phone / WhatsApp</small>
                     <a href="tel:+919876543210">+91 98765 43210</a>
                 </div>
-                <div class="c-block">
-                    <span class="c-label">Location</span>
+                <div class="contact-col">
+                    <small>Location</small>
                     <p>Gujarat, India</p>
                 </div>
-                <div class="c-block">
-                    <span class="c-label">Social</span>
-                    <div class="socials">
-                        <a href="#" data-hover>Instagram</a>
-                        <a href="#" data-hover>Behance</a>
-                        <a href="#" data-hover>LinkedIn</a>
+                <div class="contact-col">
+                    <small>Social</small>
+                    <div class="social-pills">
+                        <a href="#" class="pill">Instagram</a>
+                        <a href="#" class="pill">Behance</a>
+                        <a href="#" class="pill">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -541,16 +433,12 @@
     </div>
 </section>
 
-<!-- ══════ FOOTER ══════ -->
+<!-- FOOTER -->
 <footer class="footer">
-    <div class="container">
-        <div class="footer-row">
-            <span>&copy; 2025 YourName</span>
-            <span>Designed with ❤️</span>
-            <button class="top-btn" id="topBtn" data-hover>
-                Back to Top ↑
-            </button>
-        </div>
+    <div class="container footer-row">
+        <span>&copy; 2025 YourName</span>
+        <span>Designed with ❤️</span>
+        <button class="totop" id="totop">Back to Top ↑</button>
     </div>
 </footer>
 
