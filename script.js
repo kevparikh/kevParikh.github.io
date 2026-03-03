@@ -1,39 +1,70 @@
 /* ===================================
-   PARIKH GRAPHICS — script.js
+   PARIKH GRAPHICS — script.js v2
    =================================== */
+
+// ── Theme Toggle ───────────────────────────────────────
+const body = document.body;
+const toggleBtn = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+
+// Load saved preference
+const savedTheme = localStorage.getItem('pg-theme') || 'dark';
+if (savedTheme === 'light') {
+  body.classList.add('light');
+  if (themeIcon) themeIcon.textContent = '☀️';
+}
+
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('light');
+    const isLight = body.classList.contains('light');
+    if (themeIcon) themeIcon.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('pg-theme', isLight ? 'light' : 'dark');
+  });
+}
 
 // ── Custom Cursor ──────────────────────────────────────
 const cursor = document.getElementById('cursor');
 const ring   = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX;
-  my = e.clientY;
-});
+if (cursor && ring) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = (mx - 4) + 'px';
+    cursor.style.top  = (my - 4) + 'px';
+  });
 
-function animCursor() {
-  cursor.style.left = (mx - 5) + 'px';
-  cursor.style.top  = (my - 5) + 'px';
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.left = (rx - 18) + 'px';
-  ring.style.top  = (ry - 18) + 'px';
-  requestAnimationFrame(animCursor);
+  function animRing() {
+    rx += (mx - rx) * 0.13;
+    ry += (my - ry) * 0.13;
+    ring.style.left = (rx - 16) + 'px';
+    ring.style.top  = (ry - 16) + 'px';
+    requestAnimationFrame(animRing);
+  }
+  animRing();
+
+  document.querySelectorAll('a, button, .service-card, .work-item, .skill-pill, .stat-card, .contact-link').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'scale(2.5)';
+      ring.style.opacity = '0.8';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'scale(1)';
+      ring.style.opacity = '0.5';
+    });
+  });
 }
-animCursor();
-
-document.querySelectorAll('a, button, .service-card, .work-item, .skill-pill, .stat-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2.5)');
-  el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-});
 
 // ── Scroll Reveal ──────────────────────────────────────
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -43,17 +74,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
   });
 });
 
-// ── Nav Background on Scroll ───────────────────────────
+// ── Nav Scroll Effect ──────────────────────────────────
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) {
-    nav.style.background = 'rgba(10,10,10,0.97)';
+  if (window.scrollY > 60) {
+    nav.classList.add('scrolled');
   } else {
-    nav.style.background = 'linear-gradient(to bottom, rgba(10,10,10,0.95), transparent)';
+    nav.classList.remove('scrolled');
   }
-});
+}, { passive: true });

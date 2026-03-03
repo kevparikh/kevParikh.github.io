@@ -8,50 +8,100 @@
 </head>
 <body>
 
+  <!-- Cursor -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- ── NAV ── -->
   <nav>
     <a href="#hero" class="logo">
       <div class="logo-icon">PG</div>
       Parikh Graphics
     </a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <span class="theme-icon" id="themeIcon">🌙</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+      </div>
+    </div>
   </nav>
 
+  <!-- ── HERO ── -->
   <section id="hero">
     <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-content">
-      <div class="hero-tag">Graphic Designer · Visual Creator</div>
-      <h1 class="hero-title">Design that<br/><span>Speaks</span><br/>Louder.</h1>
-      <p class="hero-sub">Crafting bold visuals for brands, festivals, products & social media. Based in India · 2+ years of creative excellence.</p>
+
+    <!-- Left -->
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Graphic Designer · Visual Creator
+      </div>
+      <h1 class="hero-title">
+        Design that<br/><span>Speaks</span><br/>Louder.
+      </h1>
+      <p class="hero-sub">
+        Crafting bold visuals for brands, festivals, products & social media.
+        Based in India · 2+ years of creative excellence.
+      </p>
       <div class="hero-btns">
         <a href="#work" class="btn-primary">View My Work</a>
         <a href="#contact" class="btn-outline">Let's Connect</a>
       </div>
     </div>
+
+    <!-- Right — Visual Card -->
+    <div class="hero-right">
+      <div class="hero-visual">
+        <!-- Float top-left -->
+        <div class="hero-card-float2">
+          <div class="hcf2-label">EXPERIENCE</div>
+          <div class="hcf2-val">2+ Years</div>
+        </div>
+
+        <!-- Main card -->
+        <div class="hero-card-main">
+          <div class="hero-card-label">Services I Offer</div>
+          <div class="hero-card-services">
+            <div class="hcs-item"><span class="hcs-icon">📱</span><span class="hcs-name">Social Media Designs</span><span class="hcs-dot"></span></div>
+            <div class="hcs-item"><span class="hcs-icon">🎉</span><span class="hcs-name">Festival Designs</span><span class="hcs-dot"></span></div>
+            <div class="hcs-item"><span class="hcs-icon">▶️</span><span class="hcs-name">YouTube Thumbnails</span><span class="hcs-dot"></span></div>
+            <div class="hcs-item"><span class="hcs-icon">💌</span><span class="hcs-name">Invitations</span><span class="hcs-dot"></span></div>
+            <div class="hcs-item"><span class="hcs-icon">🎬</span><span class="hcs-name">Reel Editing</span><span class="hcs-dot"></span></div>
+          </div>
+        </div>
+
+        <!-- Float bottom-right -->
+        <div class="hero-card-float">
+          <div class="hcf-num">6+</div>
+          <div class="hcf-label">Categories</div>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-scroll">
       <span class="scroll-txt">Scroll</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
+  <!-- ── MARQUEE ── -->
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <div class="marquee-item">Social Media Design <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Social Media <span class="marquee-dot"></span></div>
       <div class="marquee-item">Festival Designs <span class="marquee-dot"></span></div>
       <div class="marquee-item">Product Visuals <span class="marquee-dot"></span></div>
       <div class="marquee-item">YouTube Thumbnails <span class="marquee-dot"></span></div>
       <div class="marquee-item">Invitations <span class="marquee-dot"></span></div>
       <div class="marquee-item">Video Editing <span class="marquee-dot"></span></div>
-      <div class="marquee-item">Social Media Design <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Social Media <span class="marquee-dot"></span></div>
       <div class="marquee-item">Festival Designs <span class="marquee-dot"></span></div>
       <div class="marquee-item">Product Visuals <span class="marquee-dot"></span></div>
       <div class="marquee-item">YouTube Thumbnails <span class="marquee-dot"></span></div>
@@ -60,12 +110,19 @@
     </div>
   </div>
 
+  <!-- ── ABOUT ── -->
   <section id="about">
     <div class="about-left reveal">
       <div class="about-label">About Me</div>
       <h2 class="about-title">Creativity with a Purpose</h2>
-      <p class="about-text">Hu ek passionate graphic designer chu je bold, meaningful visuals banavva ma believe kare che. Drek design ni ek story hoy chhe — ane hu e story saras rite kehva ni koshish karu chu.</p>
-      <p class="about-text">2+ years of hands-on experience in creating impactful designs for social media, festivals, product marketing, YouTube, and special occasions. Currently expanding skills into Reel & Video Editing.</p>
+      <p class="about-text">
+        Hu ek passionate graphic designer chu je bold, meaningful visuals banavva ma believe kare che.
+        Drek design ni ek story hoy chhe — ane hu e story saras rite kehva ni koshish karu chu.
+      </p>
+      <p class="about-text">
+        2+ years of hands-on experience in creating impactful designs for social media, festivals,
+        product marketing, YouTube, and special occasions. Currently expanding into Reel & Video Editing.
+      </p>
     </div>
     <div class="about-right">
       <div class="stat-card reveal reveal-delay-1">
@@ -74,7 +131,7 @@
       </div>
       <div class="stat-card reveal reveal-delay-2">
         <div class="stat-num">1yr</div>
-        <div class="stat-desc">Professional Experience at Vimalam Advisory (CA Firm)</div>
+        <div class="stat-desc">Professional at Vimalam Advisory (CA Firm)</div>
       </div>
       <div class="stat-card reveal reveal-delay-3">
         <div class="stat-num">6+</div>
@@ -83,63 +140,77 @@
     </div>
   </section>
 
+  <!-- ── SERVICES ── -->
   <section id="services">
     <div class="section-header">
-      <div class="section-label reveal">What I Do</div>
+      <span class="section-label reveal">What I Do</span>
       <h2 class="section-title reveal reveal-delay-1">Services</h2>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal"><span class="service-num">01</span><span class="service-icon">📱</span><div class="service-name">Social Media Designs</div><p class="service-desc">Eye-catching posts for Instagram, Facebook & more. Scroll-stopping visuals that grow your brand presence.</p></div>
-      <div class="service-card reveal reveal-delay-1"><span class="service-num">02</span><span class="service-icon">🎉</span><div class="service-name">Festival Designs</div><p class="service-desc">Diwali, Navratri, Holi, Eid & all festivals — vibrant, culturally rich designs that celebrate every occasion.</p></div>
-      <div class="service-card reveal reveal-delay-2"><span class="service-num">03</span><span class="service-icon">📦</span><div class="service-name">Product Designs</div><p class="service-desc">Packaging, banners & promotional materials that make your product shine on shelf and screen.</p></div>
+      <div class="service-card reveal"><span class="service-num">01</span><span class="service-icon">📱</span><div class="service-name">Social Media Designs</div><p class="service-desc">Eye-catching posts for Instagram, Facebook & more. Scroll-stopping visuals that grow your brand.</p></div>
+      <div class="service-card reveal reveal-delay-1"><span class="service-num">02</span><span class="service-icon">🎉</span><div class="service-name">Festival Designs</div><p class="service-desc">Diwali, Navratri, Holi & all festivals — vibrant, culturally rich designs for every occasion.</p></div>
+      <div class="service-card reveal reveal-delay-2"><span class="service-num">03</span><span class="service-icon">📦</span><div class="service-name">Product Designs</div><p class="service-desc">Packaging, banners & promotional materials that make your product shine on screen.</p></div>
       <div class="service-card reveal reveal-delay-3"><span class="service-num">04</span><span class="service-icon">▶️</span><div class="service-name">YouTube Thumbnails</div><p class="service-desc">High-CTR thumbnails designed to get clicks. Bold, clear and attention-grabbing every time.</p></div>
-      <div class="service-card reveal reveal-delay-4"><span class="service-num">05</span><span class="service-icon">💌</span><div class="service-name">Invitations</div><p class="service-desc">Wedding, birthday, corporate & digital invites. Elegant, personalised designs for every special moment.</p></div>
-      <div class="service-card reveal reveal-delay-5"><span class="service-num">06</span><span class="service-icon">🎬</span><div class="service-name">Reel / Video Editing</div><p class="service-desc">Currently learning & growing — creating engaging short-form video content for reels and social platforms.</p></div>
+      <div class="service-card reveal reveal-delay-4"><span class="service-num">05</span><span class="service-icon">💌</span><div class="service-name">Invitations</div><p class="service-desc">Wedding, birthday & digital invites. Elegant, personalised designs for every special moment.</p></div>
+      <div class="service-card reveal reveal-delay-5"><span class="service-num">06</span><span class="service-icon">🎬</span><div class="service-name">Reel / Video Editing</div><p class="service-desc">Creating engaging short-form video content for reels and social platforms.</p></div>
     </div>
   </section>
 
+  <!-- ── WORK ── -->
   <section id="work">
     <div class="section-header">
-      <div class="section-label reveal">Portfolio</div>
+      <span class="section-label reveal">Portfolio</span>
       <h2 class="section-title reveal reveal-delay-1">Selected Work</h2>
     </div>
     <div class="work-grid">
       <div class="work-item reveal"><div class="work-item-inner wi-1">🎉</div><div class="work-overlay"><div class="work-overlay-title">Festival Post</div><div class="work-overlay-tag">Social Media</div></div></div>
       <div class="work-item reveal reveal-delay-1"><div class="work-item-inner wi-2">▶️</div><div class="work-overlay"><div class="work-overlay-title">YouTube Thumbnail</div><div class="work-overlay-tag">Content Design</div></div></div>
       <div class="work-item reveal reveal-delay-2"><div class="work-item-inner wi-3">📦</div><div class="work-overlay"><div class="work-overlay-title">Product Banner</div><div class="work-overlay-tag">Product Design</div></div></div>
-      <div class="work-item reveal reveal-delay-3"><div class="work-item-inner wi-4">💌</div><div class="work-overlay"><div class="work-overlay-title">Wedding Invitation</div><div class="work-overlay-tag">Invitation Design</div></div></div>
+      <div class="work-item reveal reveal-delay-3"><div class="work-item-inner wi-4">💌</div><div class="work-overlay"><div class="work-overlay-title">Wedding Invitation</div><div class="work-overlay-tag">Invitation</div></div></div>
       <div class="work-item reveal reveal-delay-4"><div class="work-item-inner wi-5">📱</div><div class="work-overlay"><div class="work-overlay-title">Instagram Post</div><div class="work-overlay-tag">Social Media</div></div></div>
       <div class="work-item reveal reveal-delay-5"><div class="work-item-inner wi-6">🎬</div><div class="work-overlay"><div class="work-overlay-title">Reel Edit</div><div class="work-overlay-tag">Video Editing</div></div></div>
     </div>
-    <p class="work-note">— Replace with your actual work images —</p>
+    <p class="work-note">— Replace placeholders with your actual work images —</p>
   </section>
 
+  <!-- ── EXPERIENCE ── -->
   <section id="experience">
     <div class="section-header">
-      <div class="section-label reveal">Journey</div>
+      <span class="section-label reveal">Journey</span>
       <h2 class="section-title reveal reveal-delay-1">Experience</h2>
     </div>
     <div class="exp-container">
       <div class="exp-item reveal">
         <div class="exp-year">2023 – 2024</div>
-        <div><div class="exp-dot"></div><div class="exp-role">Graphic Designer</div><div class="exp-company">Vimalam Advisory · CA Firm</div><p class="exp-desc">Handled all graphic design requirements for a professional CA firm — creating social media content, festive posts, corporate presentations, and promotional materials for over 1 year.</p></div>
+        <div>
+          <div class="exp-dot"></div>
+          <div class="exp-role">Graphic Designer</div>
+          <div class="exp-company">Vimalam Advisory · CA Firm</div>
+          <p class="exp-desc">Handled all graphic design needs for a professional CA firm — social media content, festive posts, corporate presentations, and promotional materials for over 1 year.</p>
+        </div>
       </div>
       <div class="exp-item reveal reveal-delay-1">
         <div class="exp-year">2022 – Now</div>
-        <div><div class="exp-dot"></div><div class="exp-role">Freelance Designer</div><div class="exp-company">Parikh Graphics · Self</div><p class="exp-desc">Working independently on diverse design projects — from wedding invitations and festival posts to product visuals and YouTube thumbnails. Currently expanding into Reel & Video Editing.</p></div>
+        <div>
+          <div class="exp-dot"></div>
+          <div class="exp-role">Freelance Designer</div>
+          <div class="exp-company">Parikh Graphics · Self</div>
+          <p class="exp-desc">Working independently on diverse design projects — from wedding invitations and festival posts to product visuals and YouTube thumbnails. Currently expanding into Reel & Video Editing.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ── SKILLS ── -->
   <section id="skills">
     <div class="section-header">
-      <div class="section-label reveal">Toolkit</div>
+      <span class="section-label reveal">Toolkit</span>
       <h2 class="section-title reveal reveal-delay-1">Skills & Tools</h2>
     </div>
     <div class="skills-grid">
       <div class="skill-pill reveal"><span class="skill-icon">🎨</span><div class="skill-name">Canva</div><div class="skill-level"><div class="skill-fill" style="width:92%"></div></div></div>
-      <div class="skill-pill reveal reveal-delay-1"><span class="skill-icon">⚡</span><div class="skill-name">Adobe Photoshop</div><div class="skill-level"><div class="skill-fill" style="width:80%"></div></div></div>
-      <div class="skill-pill reveal reveal-delay-2"><span class="skill-icon">✍️</span><div class="skill-name">Adobe Illustrator</div><div class="skill-level"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-pill reveal reveal-delay-1"><span class="skill-icon">⚡</span><div class="skill-name">Photoshop</div><div class="skill-level"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-pill reveal reveal-delay-2"><span class="skill-icon">✍️</span><div class="skill-name">Illustrator</div><div class="skill-level"><div class="skill-fill" style="width:75%"></div></div></div>
       <div class="skill-pill reveal reveal-delay-3"><span class="skill-icon">🎬</span><div class="skill-name">Video Editing</div><div class="skill-level"><div class="skill-fill" style="width:55%"></div></div></div>
       <div class="skill-pill reveal reveal-delay-4"><span class="skill-icon">📐</span><div class="skill-name">Layout Design</div><div class="skill-level"><div class="skill-fill" style="width:88%"></div></div></div>
       <div class="skill-pill reveal reveal-delay-5"><span class="skill-icon">🎯</span><div class="skill-name">Brand Identity</div><div class="skill-level"><div class="skill-fill" style="width:70%"></div></div></div>
@@ -148,10 +219,11 @@
     </div>
   </section>
 
+  <!-- ── CONTACT ── -->
   <section id="contact">
-    <div class="section-label reveal">Get In Touch</div>
+    <span class="section-label reveal">Get In Touch</span>
     <h2 class="contact-title reveal reveal-delay-1">Let's Create<br/><span>Something Great.</span></h2>
-    <p class="contact-sub reveal reveal-delay-2">Have a project in mind? Whether it's a brand post, a festive design, or a YouTube thumbnail — let's talk and make it happen.</p>
+    <p class="contact-sub reveal reveal-delay-2">Have a project in mind? Whether it's a brand post, a festive design, or a YouTube thumbnail — let's talk.</p>
     <div class="contact-links reveal reveal-delay-3">
       <a href="mailto:your@email.com" class="contact-link"><span class="contact-link-icon">✉️</span> Email Me</a>
       <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="contact-link"><span class="contact-link-icon">💬</span> WhatsApp</a>
@@ -159,6 +231,7 @@
     </div>
   </section>
 
+  <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-logo">Parikh Graphics</div>
     <div class="footer-copy">© 2025 Parikh Graphics. Crafted with ♥</div>
